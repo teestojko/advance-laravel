@@ -27,4 +27,12 @@ class AuthorController extends Controller
         $author = Author::find($request->id);
         return view('edit', ['form' => $author]);
     }
+
+    public function update(Request $request)
+    {
+        $form = $request->all();
+        unset($form['_token']);
+        Author::find($request->id)->update($form);
+        return redirect('/');
+    }
 }
