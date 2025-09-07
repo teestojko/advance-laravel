@@ -35,4 +35,10 @@ class AuthorController extends Controller
         Author::find($request->id)->update($form);
         return redirect('/');
     }
+
+    public function delete(Request $request)
+    {
+        $author = Author::find($request->id);
+        return view('delete', ['author' => $author]);
+    }
 }
