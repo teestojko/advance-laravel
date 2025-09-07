@@ -46,7 +46,7 @@
         <tr>
             <th></th>
             <td>
-                <form action="/delete" method="POST">
+                <form action="/delete?id={{ $author->id }}" method="POST">
                     @csrf
                     <button>送信</button>
                 </form>
