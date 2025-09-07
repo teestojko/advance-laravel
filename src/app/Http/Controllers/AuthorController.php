@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class AuthorController extends Controller
 {
+    public function index()
+    {
+        $authors = Author::all();
+        return view('index', ['authors' => $authors]);
+    }
+
     public function add(){
         return view('add');
     }
@@ -17,9 +23,8 @@ class AuthorController extends Controller
         return redirect('/');
     }
 
-    public function index()
-    {
-        $authors = Author::all();
-        return view('index', ['authors' => $authors]);
+    public function edit(Request $request){
+        $author = Author::find($request->id);
+        return view('edit', ['form' => $author]);
     }
 }
