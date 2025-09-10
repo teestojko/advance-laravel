@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Author;
 use Illuminate\Http\Request;
+use App\Http\Requests\AuthorRequest;
 
 class AuthorController extends Controller
 {
@@ -17,7 +18,7 @@ class AuthorController extends Controller
         return view('add');
     }
 
-    public function create(Request $request){
+    public function create(AuthorRequest $request){
         $form = $request->all();
         Author::create($form);
         return redirect('/');
@@ -28,7 +29,7 @@ class AuthorController extends Controller
         return view('edit', ['form' => $author]);
     }
 
-    public function update(Request $request)
+    public function update(AuthorRequest $request)
     {
         $form = $request->all();
         unset($form['_token']);
@@ -69,5 +70,10 @@ class AuthorController extends Controller
             'item'=>$author,
         ];
         return view('author.binds', $data);
+    }
+
+    public function verror()
+    {
+        return view('verror');
     }
 }
