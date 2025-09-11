@@ -13,7 +13,7 @@
     <p>セッションに保存した値:{{ $data }}</p>
     <form action="/session" method="post">
         @csrf
-        <input type="text" name="text">
+        <input type="text" name="txt">
         <button>送信</button>
     </form>
 @endsection
