@@ -40,4 +40,4 @@ Route::prefix('book')->group(function() {
 });
 
 Route::get('/middleware', [MiddlewareController::class, 'index']);
-Route::post('/middleware', [MiddlewareController::class, 'post'])->middleware('first');
+Route::post('/middleware', [MiddlewareController::class, 'post']);
