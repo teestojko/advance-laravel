@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\MiddlewareController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,6 @@ Route::prefix('book')->group(function() {
     Route::get('/add', [BookController::class, 'add']);
     Route::post('/add', [BookController::class, 'create']);
 });
+
+Route::get('/middleware', [MiddlewareController::class, 'index']);
+Route::post('/middleware', [MiddlewareController::class, 'post'])->middleware('first');
